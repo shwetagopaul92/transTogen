@@ -67,7 +67,7 @@ There is test data in data/ that can be used to run the tool.
 
 Contents of output file (data/result.txt):
 
-  .. code-block::bash
+ .. code-block:: bash
 
      TR1	4	CHR1	7
      TR2	0	CHR2	10
