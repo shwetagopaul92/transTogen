@@ -27,19 +27,19 @@ Sample Input/Output
 -------------------
 Input file 1:
 
-> TR1 CHR1 3 8M7D6M2I2M11D7M\
-  TR2 CHR2 10 20M
+ | TR1 CHR1 3 8M7D6M2I2M11D7M
+ | TR2 CHR2 10 20M
 
 Input file 2:
 
-> TR1 4\
-  TR2 0\
-  TR1 13\
-  TR2 10
+ | TR1 4
+ | TR2 0
+ | TR1 13
+ | TR2 10
 
 Output file:
 
-> TR1	4	CHR1	7\
-  TR2	0	CHR2	10\
-  TR1	13	CHR1	23\
-  TR2	10	CHR2	20
+ | TR1	4	CHR1	7
+ | TR2	0	CHR2	10
+ | TR1	13	CHR1	23
+ | TR2	10	CHR2	20

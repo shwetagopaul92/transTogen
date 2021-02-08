@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>transTogen: Python Tool to Translate Transcript to Genomic Coordinates &#8212; transTogen  documentation</title>
+    <title>transTogen &#8212; transTogen  documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -31,76 +31,144 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="transtogen-python-tool-to-translate-transcript-to-genomic-coordinates">
-<h1>transTogen: Python Tool to Translate Transcript to Genomic Coordinates<a class="headerlink" href="#transtogen-python-tool-to-translate-transcript-to-genomic-coordinates" title="Permalink to this headline">¶</a></h1>
-<p>transTogen is a Python Command Line Tool that helps transalte transcript to genomic coordinates.
-In order to develop this tool,</p>
-</div>
+  <div class="section" id="transtogen">
+<h1>transTogen<a class="headerlink" href="#transtogen" title="Permalink to this headline">¶</a></h1>
+<p>transTogen is a Python Command Line Tool that helps translate transcript to genomic coordinates.</p>
+<p>The objective is then to translate a (0-based) transcript coordinate to a (0 based) genome coordinate. For example the fifth base in TR1 (i.e. TR1:4) maps to genome coordinate CHR1:7. Similarly, TR1:13 maps to CHR1:23 and TR1:14 maps to an insertion immediately before CHR1:24.</p>
 <div class="section" id="installation">
-<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
-<p>The source code can be found at: &lt;github_url&gt;</p>
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>The source code can be found at: &lt;<a class="reference external" href="https://github.com/shwetagopaul92/transTogen.git">https://github.com/shwetagopaul92/transTogen.git</a>&gt;</p>
 <blockquote>
 <div><p>Follow the following steps to get the tool installed on your system:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git clone
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git clone https://github.com/shwetagopaul92/transTogen.git
 $ <span class="nb">cd</span> transTogen/
 $ pip3 install -e .
 </pre></div>
 </div>
 </div></blockquote>
+<p>Requirements can be found in requirements.txt.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip3 install -r requirements.txt
+</pre></div>
+</div>
+</div></blockquote>
+</div></blockquote>
 </div>
 <div class="section" id="working-with-transtogen">
-<h1>Working with transTogen<a class="headerlink" href="#working-with-transtogen" title="Permalink to this headline">¶</a></h1>
+<h2>Working with transTogen<a class="headerlink" href="#working-with-transtogen" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Inputs:</p>
+<ol class="arabic simple">
+<li><p>A four column (tab-separated) file containing the transcripts. The first column is the transcript name, and the remaining three columns indicate it’s genomic mapping: chromosome name, 0-based starting position on the chromosome, and CIGAR string indicating the mapping.</p></li>
+<li><p>A two column (tab-separated) file indicating a set of queries. The first column is a transcript name, and the second column is a 0-based transcript coordinate.</p></li>
+</ol>
+</li>
+<li><p>Output:</p>
+<ol class="arabic simple">
+<li><p>The output is a four column tab separated file with one row for each of the input
+queries.The first two columns are exactly the two columns from the second input file, and the remaining two columns are the chromosome name and chromosome coordinate, respectively.</p></li>
+</ol>
+</li>
+</ul>
 <p>To get started:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt; transTogen -h
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ transTogen -h
 usage: transTogen <span class="o">[</span>-h<span class="o">]</span> query_file mapping_file output_file
-
-Tool to translate transcript coordinates to genomic coordinates.
-
+Tool to translate transcript coordinates to genomic coordinates. eg:
+transTogen &lt;query_file.txt&gt; &lt;mapping_file.txt&gt; &lt;output_file.txt&gt;
 positional arguments:
- query_file    Tab-separated file containing queries with transcript name and
-               coordinate<span class="p">;</span> eg: TR1 <span class="m">4</span> TR2 <span class="m">0</span>
- mapping_file  Tab-separated file transcript with genome mapping information<span class="p">;</span>
-               eg:TR1 CHR1 <span class="m">3</span> 8M7D6M2I2M11D7M
- output_file   File store generated output file with result
+  query_file    Tab-separated file containing queries with transcript name and
+                coordinate<span class="p">;</span> eg: TR1 <span class="m">4</span>
+  mapping_file  Tab-separated file transcript with genome mapping information
+                eg: TR1 CHR1 <span class="m">3</span> 8M7D6M2I2M11D7M
+  output_file   File store generated output file with result
 
 optional arguments:
  -h, --help    show this <span class="nb">help</span> message and <span class="nb">exit</span>
 </pre></div>
 </div>
-<p><em>Example:</em>
-There is test data in data/ that can be used to run the tool.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt; transTogen data/transcript-query.txt data/transcript-map.txt data/result.txt
+</div></blockquote>
+</div>
+<div class="section" id="example">
+<h2><strong>Example</strong><a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>There is test data in data/ that can be used to run the tool.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt; transTogen data/transcript-query.txt data/transcript-map.txt data/result.txt
 </pre></div>
 </div>
+</div></blockquote>
 <p>Contents of output file (data/result.txt):</p>
-<p>TR1     4       CHR1    7
-TR2     0       CHR2    10
-TR1     13      CHR1    23
-TR2     10      CHR2    20</p>
+<div class="line-block">
+<div class="line">TR1   4       CHR1    7</div>
+<div class="line">TR2   0       CHR2    10</div>
+<div class="line">TR1   13      CHR1    23</div>
+<div class="line">TR2   10      CHR2    20</div>
+</div>
 </div>
 <div class="section" id="testing">
-<h1>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h1>
+<h2>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>Pytest has been used to test the package.</p></li>
+<li><p>Expected results are used to check against the result from a function.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt; <span class="nb">cd</span> tests
+&gt; pytest -v
+</pre></div>
+</div>
+</li>
+</ul>
 </div>
 <div class="section" id="documentation">
-<h1>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h1>
+<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Every function in the package is documented with a summary, required parameters and return values.</p></li>
-<li><p>Exceptions taken care of are noted as well.</p></li>
+<li><p>Exceptions taken care of are noted as wetall.</p></li>
 <li><p><strong>Sphinx</strong> document generator has been used to document the package.</p></li>
 </ul>
 </div>
 <div class="section" id="style">
-<h1>Style<a class="headerlink" href="#style" title="Permalink to this headline">¶</a></h1>
+<h2>Style<a class="headerlink" href="#style" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><strong>PEP-8</strong> Community-preferred style guidelines are followed.</p></li>
-<li><p><em>pycodestyle</em> was used to check style against PEP-8 conventions.</p></li>
+<li><p><strong>pycodestyle</strong> was used to check style against PEP-8 conventions.</p></li>
 </ul>
 </div>
 <div class="section" id="strengths">
-<h1>Strengths<a class="headerlink" href="#strengths" title="Permalink to this headline">¶</a></h1>
+<h2>Strengths<a class="headerlink" href="#strengths" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>User-friendly command line tool with lot of help messages.</p></li>
+<li><p>Code is efficiently written in PEP-8 style and documented with Sphinx for easy understanding.</p></li>
+<li><p>Code is split into functions in separate files for efficient organization and
+easier for troubleshooting errors.</p></li>
+<li><p>Data structures like dictionary is used for efficiently organizing the transcript to genome
+mapping information.</p></li>
+<li><dl class="simple">
+<dt>Exceptions are provided at different instances</dt><dd><ol class="arabic simple">
+<li><p>Check if a given transcript query exists
+in transcript genome mapping.</p></li>
+<li><p>Check if the transcript location provided
+falls withing length of transcript.</p></li>
+</ol>
+</dd>
+</dl>
+</li>
+<li><p>Input file path provided by user is checked for validity.</p></li>
+<li><p>Testing covers the entire package.</p></li>
+</ul>
 </div>
 <div class="section" id="limitations-future-improvements">
-<h1>Limitations &amp; Future Improvements<a class="headerlink" href="#limitations-future-improvements" title="Permalink to this headline">¶</a></h1>
+<h2>Limitations &amp; Future Improvements<a class="headerlink" href="#limitations-future-improvements" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>With more functionality, classes can also be used to describe the mapping
+between transcript and genomes.</p></li>
+</ul>
+</div>
+<div class="section" id="note">
+<h2><strong>Note</strong><a class="headerlink" href="#note" title="Permalink to this headline">¶</a></h2>
+<p>In order to illustrate pull requests, I created a branch “update_docs” that
+was used to add documentation, and created a pull request to master branch, and merged to master
+after checking there were no conflicts between the two.</p>
+</div>
 </div>
 
 
@@ -123,14 +191,18 @@ TR2     10      CHR2    20</p>
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../problem/00.overview.html">Problem</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">transTogen: Python Tool to Translate Transcript to Genomic Coordinates</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#installation">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#working-with-transtogen">Working with transTogen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#testing">Testing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#documentation">Documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#style">Style</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#strengths">Strengths</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#limitations-future-improvements">Limitations &amp; Future Improvements</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">transTogen</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#working-with-transtogen">Working with transTogen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example"><strong>Example</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#testing">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#documentation">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#style">Style</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#strengths">Strengths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#limitations-future-improvements">Limitations &amp; Future Improvements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#note"><strong>Note</strong></a></li>
+</ul>
+</li>
 </ul>
 
 <div class="relations">

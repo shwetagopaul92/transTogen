@@ -1,3 +1,0 @@
-[console_scripts]
-transTogen = transTogen.run_transTogen:main
-
