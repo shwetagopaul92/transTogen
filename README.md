@@ -5,6 +5,20 @@ transTogen is a Python Command Line Tool that helps transalte transcript to geno
 
 The objective is then to translate a (0-based) transcript coordinate to a (0 based) genome coordinate. For example the fifth base in TR1 (i.e. TR1:4) maps to genome coordinate CHR1:7. Similarly, TR1:13 maps to CHR1:23 and TR1:14 maps to an insertion immediately before CHR1:24.
 
+**Note**
+--------
+
+Please find Sphinx generated **documentation** at
+
+    > cd docs/build 
+    > cd html
+    > open index.html 
+
+Documentation was generated using: 
+
+    > cd docs
+    > make html 
+
 Installation:
 -------------
 
