@@ -28,30 +28,29 @@ Working with transTogen:
   2. A two column (tab-separated) file indicating a set of queries. The first column is a transcript name, and the second column is a 0-based transcript coordinate.
 
 - Output:
-1. The output is a four column tab separated file with one row for each of the input   
-   queries.The first two columns are exactly the two columns from the second input file, and the remaining two columns are the chromosome name and chromosome coordinate, respectively.
+  1. The output is a four column tab separated file with one row for each of the input
+     queries.The first two columns are exactly the two columns from the second input file, and the remaining two columns are the chromosome name and chromosome coordinate, respectively.
 
 To get started:
 
 
    > transTogen -h
    usage: transTogen [-h] query_file mapping_file output_file
-
-   > Tool to translate transcript coordinates to genomic coordinates. eg:
+   Tool to translate transcript coordinates to genomic coordinates. eg:
    transTogen <query_file.txt> <mapping_file.txt> <output_file.txt>
-
-   > positional arguments:
-    query_file    Tab-separated file containing queries with transcript name and
-                coordinate; eg: TR1 4
-    mapping_file  Tab-separated file transcript with genome mapping information
-                eg: TR1 CHR1 3 8M7D6M2I2M11D7M
-    output_file   File store generated output file with result
-
-   > optional arguments:
-    -h, --help    show this help message and exit
+   positional arguments:
+     query_file    Tab-separated file containing queries with transcript name and
+                   coordinate; eg: TR1 4
+     mapping_file  Tab-separated file transcript with genome mapping information
+                   eg: TR1 CHR1 3 8M7D6M2I2M11D7M
+     output_file   File store generated output file with result
+   optional arguments:
+     -h, --help    show this help message and exit
 
 
 **Example:**
+------------
+
 There is test data in data/ that can be used to run the tool.
 
    > transTogen data/transcript-query.txt data/transcript-map.txt data/result.txt
@@ -67,8 +66,6 @@ Testing:
 --------
 - Pytest has been used to test the package.
 - Expected results are used to check against the result from a function.
-
-  .. code-block:: bash
 
    > cd tests
    > pytest -v
