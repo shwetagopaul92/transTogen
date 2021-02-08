@@ -12,17 +12,13 @@ The source code can be found at: <https://github.com/shwetagopaul92/transTogen.g
 
  Follow the following steps to get the tool installed on your system:
 
-  .. code-block:: bash
-
-    $ git clone https://github.com/shwetagopaul92/transTogen.git
-    $ cd transTogen/
-    $ pip3 install -e .
+    > git clone https://github.com/shwetagopaul92/transTogen.git
+    > cd transTogen/
+    > pip3 install -e .
 
 Requirements are in requirements.txt
 
-  .. code-block:: bash
-
-    $ pip3 install -r requirements.txt
+    > pip3 install -r requirements.txt
 
 Working with transTogen:
 ------------------------
@@ -37,9 +33,8 @@ Working with transTogen:
 
 To get started:
 
-  .. code-block:: bash
 
-   $ transTogen -h
+   > transTogen -h
    usage: transTogen [-h] query_file mapping_file output_file
 
    > Tool to translate transcript coordinates to genomic coordinates. eg:
@@ -58,8 +53,6 @@ To get started:
 
 **Example:**
 There is test data in data/ that can be used to run the tool.
-
-  .. code-block:: bash
 
    > transTogen data/transcript-query.txt data/transcript-map.txt data/result.txt
 
