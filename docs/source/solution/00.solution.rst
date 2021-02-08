@@ -1,7 +1,7 @@
 transTogen
 ==========
 
-transTogen is a Python Command Line Tool that helps transalte transcript to genomic coordinates.
+transTogen is a Python Command Line Tool that helps translate transcript to genomic coordinates.
 
 The objective is then to translate a (0-based) transcript coordinate to a (0 based) genome coordinate. For example the fifth base in TR1 (i.e. TR1:4) maps to genome coordinate CHR1:7. Similarly, TR1:13 maps to CHR1:23 and TR1:14 maps to an insertion immediately before CHR1:24.
 
@@ -32,8 +32,8 @@ Working with transTogen:
   2. A two column (tab-separated) file indicating a set of queries. The first column is a transcript name, and the second column is a 0-based transcript coordinate.
 
 - Output:
-1. The output is a four column tab separated file with one row for each of the input
-   queries.The first two columns are exactly the two columns from the second input file, and the remaining two columns are the chromosome name and chromosome coordinate, respectively.
+  1. The output is a four column tab separated file with one row for each of the input
+     queries.The first two columns are exactly the two columns from the second input file, and the remaining two columns are the chromosome name and chromosome coordinate, respectively.
 
 To get started:
 
@@ -57,6 +57,8 @@ To get started:
 
 
 **Example:**
+------------
+
 There is test data in data/ that can be used to run the tool.
 
   .. code-block:: bash
