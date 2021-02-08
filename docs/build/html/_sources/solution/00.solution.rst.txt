@@ -1,5 +1,5 @@
 transTogen: Python Tool to Translate Transcript to Genomic Coordinates
-======================================================================
+----------------------------------------------------------------------
 
 transTogen is a Python Command Line Tool that helps transalte transcript to genomic coordinates.
 In order to develop this tool,
@@ -40,6 +40,7 @@ To get started:
     -h, --help    show this help message and exit
 
 *Example:*
+There is test data in data/ that can be used to run the tool.
 
 .. code-block:: bash
 
@@ -55,6 +56,7 @@ TR2	10	CHR2	20
 
 Testing
 -------
+
 
 Documentation
 -------------
