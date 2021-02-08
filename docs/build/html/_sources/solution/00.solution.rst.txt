@@ -1,0 +1,74 @@
+transTogen: Python Tool to Translate Transcript to Genomic Coordinates
+======================================================================
+
+transTogen is a Python Command Line Tool that helps transalte transcript to genomic coordinates.
+In order to develop this tool,
+
+Installation
+------------
+
+The source code can be found at: <github_url>
+
+ Follow the following steps to get the tool installed on your system:
+
+ .. code-block:: bash
+
+    $ git clone
+    $ cd transTogen/
+    $ pip3 install -e .
+
+Working with transTogen
+-----------------------
+
+To get started:
+
+.. code-block:: bash
+
+   > transTogen -h
+   usage: transTogen [-h] query_file mapping_file output_file
+
+   Tool to translate transcript coordinates to genomic coordinates.
+
+   positional arguments:
+    query_file    Tab-separated file containing queries with transcript name and
+                  coordinate; eg: TR1 4 TR2 0
+    mapping_file  Tab-separated file transcript with genome mapping information;
+                  eg:TR1 CHR1 3 8M7D6M2I2M11D7M
+    output_file   File store generated output file with result
+
+   optional arguments:
+    -h, --help    show this help message and exit
+
+*Example:*
+
+.. code-block:: bash
+
+   > transTogen data/transcript-query.txt data/transcript-map.txt data/result.txt
+
+Contents of output file (data/result.txt):
+
+TR1	4	CHR1	7
+TR2	0	CHR2	10
+TR1	13	CHR1	23
+TR2	10	CHR2	20
+
+
+Testing
+-------
+
+Documentation
+-------------
+- Every function in the package is documented with a summary, required parameters and return values.
+- Exceptions taken care of are noted as well.
+- **Sphinx** document generator has been used to document the package.
+
+Style
+-----
+- **PEP-8** Community-preferred style guidelines are followed.
+- *pycodestyle* was used to check style against PEP-8 conventions.
+
+Strengths
+---------
+
+Limitations & Future Improvements
+---------------------------------

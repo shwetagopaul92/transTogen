@@ -1,0 +1,183 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>transTogen: Python Tool to Translate Transcript to Genomic Coordinates &#8212; transTogen  documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Problem" href="../problem/00.overview.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="transtogen-python-tool-to-translate-transcript-to-genomic-coordinates">
+<h1>transTogen: Python Tool to Translate Transcript to Genomic Coordinates<a class="headerlink" href="#transtogen-python-tool-to-translate-transcript-to-genomic-coordinates" title="Permalink to this headline">¶</a></h1>
+<p>transTogen is a Python Command Line Tool that helps transalte transcript to genomic coordinates.
+In order to develop this tool,</p>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>The source code can be found at: &lt;github_url&gt;</p>
+<blockquote>
+<div><p>Follow the following steps to get the tool installed on your system:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git clone
+$ <span class="nb">cd</span> transTogen/
+$ pip3 install -e .
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="working-with-transtogen">
+<h2>Working with transTogen<a class="headerlink" href="#working-with-transtogen" title="Permalink to this headline">¶</a></h2>
+<p>To get started:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt; transTogen -h
+usage: transTogen <span class="o">[</span>-h<span class="o">]</span> query_file mapping_file output_file
+
+Tool to translate transcript coordinates to genomic coordinates.
+
+positional arguments:
+ query_file    Tab-separated file containing queries with transcript name and
+               coordinate<span class="p">;</span> eg: TR1 <span class="m">4</span> TR2 <span class="m">0</span>
+ mapping_file  Tab-separated file transcript with genome mapping information<span class="p">;</span>
+               eg:TR1 CHR1 <span class="m">3</span> 8M7D6M2I2M11D7M
+ output_file   File store generated output file with result
+
+optional arguments:
+ -h, --help    show this <span class="nb">help</span> message and <span class="nb">exit</span>
+</pre></div>
+</div>
+<p><em>Example:</em></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt; transTogen data/transcript-query.txt data/transcript-map.txt data/result.txt
+</pre></div>
+</div>
+<p>Contents of output file (data/result.txt):</p>
+<p>TR1     4       CHR1    7
+TR2     0       CHR2    10
+TR1     13      CHR1    23
+TR2     10      CHR2    20</p>
+</div>
+<div class="section" id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Every function in the package is documented with a summary, required parameters and return values.</p></li>
+<li><p>Exceptions taken care of are noted as well.</p></li>
+<li><p><strong>Sphinx</strong> document generator has been used to document the package.</p></li>
+</ul>
+</div>
+<div class="section" id="style">
+<h2>Style<a class="headerlink" href="#style" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong>PEP-8</strong> Community-preferred style guidelines are followed.</p></li>
+<li><p><em>pycodestyle</em> was used to check style against PEP-8 conventions.</p></li>
+</ul>
+</div>
+<div class="section" id="strengths">
+<h2>Strengths<a class="headerlink" href="#strengths" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="limitations-future-improvements">
+<h2>Limitations &amp; Future Improvements<a class="headerlink" href="#limitations-future-improvements" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">transTogen</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../problem/00.overview.html">Problem</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">transTogen: Python Tool to Translate Transcript to Genomic Coordinates</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#working-with-transtogen">Working with transTogen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#testing">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#documentation">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#style">Style</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#strengths">Strengths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#limitations-future-improvements">Limitations &amp; Future Improvements</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../problem/00.overview.html" title="previous chapter">Problem</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Shweta Gopaulakrishnan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/solution/00.solution.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

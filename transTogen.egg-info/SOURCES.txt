@@ -1,0 +1,12 @@
+README.md
+setup.py
+transTogen/__init__.py
+transTogen/run_transTogen.py
+transTogen/transcript_genome_map.py
+transTogen/translate_coordinates.py
+transTogen.egg-info/PKG-INFO
+transTogen.egg-info/SOURCES.txt
+transTogen.egg-info/dependency_links.txt
+transTogen.egg-info/entry_points.txt
+transTogen.egg-info/requires.txt
+transTogen.egg-info/top_level.txt

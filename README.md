@@ -1,0 +1,104 @@
+transTogen: Python Tool to Translate Transcript to Genomic Coordinates
+======================================================================
+
+transTogen is a Python Command Line Tool that helps transalte transcript to genomic coordinates.
+In order to develop this tool,
+
+Installation:
+-------------
+
+The source code can be found at: <github_url>
+
+ Follow the following steps to get the tool installed on your system:
+
+ .. code-block:: bash
+
+    $ git clone
+    $ cd transTogen/
+    $ pip3 install -e .
+
+Requirements are in requirements.txt
+
+  .. code-block:: bash
+
+    $ pip3 install -r requirements.txt
+
+Working with transTogen:
+------------------------
+
+To get started:
+
+.. code-block:: bash
+
+   > transTogen -h
+   usage: transTogen [-h] query_file mapping_file output_file
+
+   Tool to translate transcript coordinates to genomic coordinates. eg:
+   transTogen <query_file.txt> <mapping_file.txt> <output_file.txt>
+
+   positional arguments:
+    query_file    Tab-separated file containing queries with transcript name and
+                coordinate; eg: TR1 4
+    mapping_file  Tab-separated file transcript with genome mapping information
+                eg: TR1 CHR1 3 8M7D6M2I2M11D7M
+    output_file   File store generated output file with result
+
+   optional arguments:
+    -h, --help    show this help message and exit
+
+
+*Example:*
+There is test data in data/ that can be used to run the tool.
+
+.. code-block:: bash
+
+   > transTogen data/transcript-query.txt data/transcript-map.txt data/result.txt
+
+Contents of output file (data/result.txt):
+
+TR1	4	CHR1	7
+TR2	0	CHR2	10
+TR1	13	CHR1	23
+TR2	10	CHR2	20
+
+Testing:
+--------
+- Pytest has been used to test the package.
+- Expected results are used to check against the result from a function.
+
+.. code-block:: bash
+
+   > cd tests
+   > pytest -v
+
+Documentation:
+--------------
+- Every function in the package is documented with a summary, required parameters and return values.
+- Exceptions taken care of are noted as wetall.
+- **Sphinx** document generator has been used to document the package.
+
+Style:
+-----
+- **PEP-8** Community-preferred style guidelines are followed.
+- *pycodestyle* was used to check style against PEP-8 conventions.
+
+Strengths:
+----------
+- User-friendly command line tool with lot of help messages.
+- Code is efficiently written in PEP-8 style and documented with Sphinx for easy understanding.
+- Code is split into functions in separate files for efficient organization and
+  easier for troubleshooting errors.
+- Data structures like dictionary is used for efficiently organizing the transcript to genome   
+  mapping information.
+- Exceptions are provided at different instances
+      1. Check if a given transcript query exists
+         in transcript genome mapping.
+      2. Check if the transcript location provided
+         falls withing length of transcript.
+- Input file path provided by user is checked for validity.
+- Testing covers the entire package.
+
+Limitations & Future Improvements:
+----------------------------------
+- With more functionality, classes can also be used to describe the mapping
+  between transcript and genomes. 
