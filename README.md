@@ -57,9 +57,9 @@ There is test data in data/ that can be used to run the tool.
 
 Contents of output file (data/result.txt):
 
-    TR1	4	CHR1	7\
-    TR2	0	CHR2	10\
-    TR1	13	CHR1	23\
+    TR1	4	CHR1	7
+    TR2	0	CHR2	10
+    TR1	13	CHR1	23
     TR2	10	CHR2	20
 
 Testing:
