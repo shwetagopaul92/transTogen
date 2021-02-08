@@ -10,13 +10,13 @@ Installation:
 
 The source code can be found at: <https://github.com/shwetagopaul92/transTogen.git>
 
- Follow the following steps to get the tool installed on your system:
+Follow the following steps to get the tool installed on your system:
 
     > git clone https://github.com/shwetagopaul92/transTogen.git
     > cd transTogen/
     > pip3 install -e .
 
-Requirements are in requirements.txt
+Requirements can be found in requirements.txt.
 
     > pip3 install -r requirements.txt
 
@@ -34,17 +34,17 @@ Working with transTogen:
 To get started:
 
 
-   > transTogen -h
-   usage: transTogen [-h] query_file mapping_file output_file
-   Tool to translate transcript coordinates to genomic coordinates. eg:
-   transTogen <query_file.txt> <mapping_file.txt> <output_file.txt>
-   positional arguments:
-     query_file    Tab-separated file containing queries with transcript name and
-                   coordinate; eg: TR1 4
-     mapping_file  Tab-separated file transcript with genome mapping information
-                   eg: TR1 CHR1 3 8M7D6M2I2M11D7M
-     output_file   File store generated output file with result
-   optional arguments:
+    transTogen -h
+    usage: transTogen [-h] query_file mapping_file output_file
+    Tool to translate transcript coordinates to genomic coordinates. eg:
+    transTogen <query_file.txt> <mapping_file.txt> <output_file.txt>
+    positional arguments:
+      query_file    Tab-separated file containing queries with transcript name and
+                    coordinate; eg: TR1 4
+      mapping_file  Tab-separated file transcript with genome mapping information
+                    eg: TR1 CHR1 3 8M7D6M2I2M11D7M
+      output_file   File store generated output file with result
+    optional arguments:
      -h, --help    show this help message and exit
 
 
@@ -67,8 +67,6 @@ Testing:
 - Pytest has been used to test the package.
 - Expected results are used to check against the result from a function.
 
-   > cd tests
-   > pytest -v
 
 Documentation:
 --------------
@@ -81,6 +79,8 @@ Style:
 - **PEP-8** Community-preferred style guidelines are followed.
 - **pycodestyle** was used to check style against PEP-8 conventions.
 
+      > cd pytest 
+      > pytest -v 
 Strengths:
 ----------
 - User-friendly command line tool with lot of help messages.
